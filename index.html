@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rainforest Cafe – The Best Party Place in Mohammadpur | রেইনফরেস্ট ক্যাফে</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600;700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-green: #2E5A3B;
+            --secondary-green: #4A7C59;
+            --light-green: #6B9B7A;
+            --cream-bg: #FDF8F0;
+            --cream-light: #FFF9F0;
+            --wood-tone: #D4A574;
+            --wood-dark: #B8956C;
+            --text-dark: #2C3E2D;
+            --text-medium: #5A6F5B;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(46, 90, 59, 0.08);
+            --shadow-medium: 0 8px 30px rgba(46, 90, 59, 0.12);
+            --radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Noto Sans Bengali', sans-serif;
+            background-color: var(--cream-bg);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* Leaf Pattern Background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(107, 155, 122, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(74, 124, 89, 0.04) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow-soft);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.5rem;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.65rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.75rem;
+            color: var(--text-medium);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 400;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-green);
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-green);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Address Bar */
+        .address-bar {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            padding: 0.6rem 2rem;
+            text-align: center;
+            font-size: 0.88rem;
+        }
+
+        .address-bar-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .address-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .address-item span {
+            opacity: 0.95;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(46, 90, 59, 0.85) 0%, rgba(74, 124, 89, 0.85) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4a574" width="1200" height="800"/><circle cx="300" cy="250" r="150" fill="%23f4e4c1" opacity="0.3"/><circle cx="900" cy="550" r="180" fill="%23e8d4a8" opacity="0.25"/></svg>');
+            background-size: cover;
+            background-position: center;
+            padding: 4rem 2rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 5 Q35 15 30 25 Q25 15 30 5' fill='%23ffffff' opacity='0.05'/%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 850px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: var(--white);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-subtitle-bn {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.25rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-green);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary-green);
+            transform: translateY(-3px);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 0.75rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .leaf-divider {
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--secondary-green), transparent);
+            margin: 1rem auto;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .leaf-divider::before,
+        .leaf-divider::after {
+            content: '🌿';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .leaf-divider::before {
+            left: -25px;
+        }
+
+        .leaf-divider::after {
+            right: -25px;
+        }
+
+        .section-subtitle {
+            color: var(--text-medium);
+            font-size: 1.1rem;
+        }
+
+        /* Menu Grid */
+        .menu-category {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .category-icon {
+            font-size: 1.8rem;
+        }
+
+        .category-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 600;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .menu-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 124, 89, 0.08);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary-green), var(--secondary-green));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .menu-card:hover::before {
+            opacity: 1;
+        }
+
+        .menu-card.highlighted {
+            background: linear-gradient(135deg, #fffefb 0%, #fff9f0 100%);
+            border: 2px solid var(--secondary-green);
+        }
+
+        .menu-card.highlighted::before {
+            opacity: 1;
+        }
+
+        .dish-name {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            margin-bottom: 0.35rem;
+        }
+
+        .dish-name-bn {
+            font-size: 0.82rem;
+            color: var(--text-medium);
+            margin-bottom: 0.75rem;
+            font-weight: 400;
+        }
+
+        .dish-details {
+            font-size: 0.88rem;
+            color: var(--text-medium);
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+
+        .dish-price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dish-price {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--primary-green);
+        }
+
+        .order-btn {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            border: none;
+            padding: 0.5rem 1.25rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .order-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 15px rgba(46, 90, 59, 0.3);
+        }
+
+        /* Platters Special Section */
+        .platters-section {
+            background: linear-gradient(135deg, rgba(46, 90, 59, 0.04) 0%, rgba(74, 124, 89, 0.06) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 2px solid rgba(74, 124, 89, 0.15);
+        }
+
+        .platters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+            margin-top: 2rem;
+        }
+
+        .platter-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-medium);
+            border-left: 5px solid var(--secondary-green);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platter-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: linear-gradient(135deg, var(--wood-tone) 0%, var(--wood-dark) 100%);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .platter-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.45rem;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .platter-price {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--wood-dark);
+            margin-bottom: 1rem;
+        }
+
+        .platter-items {
+            list-style: none;
+            font-size: 0.92rem;
+            color: var(--text-medium);
+            line-height: 1.8;
+        }
+
+        .platter-items li {
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .platter-items li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--secondary-green);
+            font-weight: 700;
+        }
+
+        /* Quick Categories */
+        .quick-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            margin-top: 2rem;
+        }
+
+        .quick-cat-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(74, 124, 89, 0.08);
+        }
+
+        .quick-cat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-medium);
+            border-color: var(--secondary-green);
+        }
+
+        .quick-cat-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .quick-cat-title {
+            font-weight: 600;
+            color: var(--primary-green);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .quick-cat-items {
+            font-size: 0.85rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* Drinks Section */
+        .drinks-section {
+            background: linear-gradient(135deg, var(--cream-light) 0%, var(--cream-bg) 100%);
+            border-radius: 24px;
+            padding: 3rem;
+            margin: 3rem 0;
+        }
+
+        .drinks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .drink-category {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .drink-category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .drink-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .drink-tag {
+            background: linear-gradient(135deg, rgba(46, 90, 59, 0.08) 0%, rgba(74, 124, 89, 0.12) 100%);
+            color: var(--primary-green);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .drink-tag:hover {
+            background: var(--primary-green);
+            color: var(--white);
+            transform: scale(1.05);
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--primary-green) 0%, var(--secondary-green) 100%);
+            color: var(--white);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .delivery-banner {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius);
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .delivery-banner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .delivery-banner p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .footer-section p,
+        .footer-section li {
+            opacity: 0.9;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .phone-highlight {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-title {
+                font-size: 2.75rem;
+            }
+            
+            .menu-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: var(--white);
+                flex-direction: column;
+                padding: 5rem 2rem 2rem;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.15);
+                transition: right 0.3s ease;
+                gap: 1.5rem;
+                z-index: 999;
+            }
+
+            .nav.active {
+                right: 0;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle-bn {
+                font-size: 1.15rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .address-bar-content {
+                flex-direction: column;
+                gap: 0.5rem;
+                font-size: 0.82rem;
+            }
+
+            .menu-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platters-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .platters-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .drinks-section {
+                padding: 2rem 1.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-main {
+                padding: 0.75rem 1rem;
+            }
+
+            .logo-title {
+                font-size: 1.3rem;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 3rem 1.5rem;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .category-header {
+                padding: 0.85rem 1.25rem;
+            }
+
+            .category-name {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        /* Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--cream-bg);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--light-green);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary-green);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-main">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌿</div>
+                <div class="logo-text">
+                    <span class="logo-title">Rainforest Cafe</span>
+                    <span class="logo-subtitle">Premium Casual Dining</span>
+                </div>
+            </a>
+            
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+            
+            <nav class="nav" id="mainNav">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#offers" class="nav-link">Offers</a>
+                <a href="#booking" class="nav-link">Party Booking</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+        
+        <div class="address-bar">
+            <div class="address-bar-content">
+                <div class="address-item">
+                    📍 ১৫, ৬ তাজমহল রোড, ঢাকা ১২০৭ / 15, 6 Tajmahal Rd, Dhaka 1207
+                </div>
+                <div class="address-item">
+                    📞 ০১৯১৫-১৭১৬০৪ | 01915-171604
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content animate-in">
+            <div class="hero-badge">🌴 Welcome to Rainforest Experience</div>
+            <h1 class="hero-title">Rainforest Cafe – The Best Party Place in Mohammadpur</h1>
+            <p class="hero-subtitle-bn">সেরা আয়োজনের ঠিকানা মোহাম্মদপুরে</p>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">🍽️ Order Now</a>
+                <a href="#booking" class="btn btn-secondary">🎉 Book a Party</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Menu Section -->
+    <section class="section" id="menu">
+        
+        <!-- Continental Section -->
+        <div class="menu-category">
+            <div class="category-header">
+                <span class="category-icon">🥩</span>
+                <h2 class="category-name">Continental / কন্টিনেন্টাল</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card highlighted">
+                    <h3 class="dish-name">Rainforest Special Chicken Steak</h3>
+                    <p class="dish-name-bn">রেইনফরেস্ট স্পেশাল চিকেন স্টেক</p>
+                    <p class="dish-details">BBQ Rice, Sautéed Veg<br>বিবিকিউ রাইস, সটেড ভেজ</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 399/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Lemon Garlic Chicken</h3>
+                    <p class="dish-name-bn">লেমন গার্লিক চিকেন</p>
+                    <p class="dish-details">Fried Rice, Sautéed Veg<br>ফ্রাইড রাইস, সটেড ভেজ</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 339/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Peri Peri Chicken</h3>
+                    <p class="dish-name-bn">পেরি পেরি চিকেন</p>
+                    <p class="dish-details">Spicy & Flavorful<br>ঝাল ও স্বাদে ভরপুর</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 339/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">BBQ Chicken</h3>
+                    <p class="dish-name-bn">বিবিকিউ চিকেন</p>
+                    <p class="dish-details">Grilled to Perfection<br>গ্রিলড টু পারফেকশন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 339/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rice Section -->
+        <div class="menu-category">
+            <div class="category-header">
+                <span class="category-icon">🍚</span>
+                <h2 class="category-name">Rice Dishes / রাইস</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card highlighted">
+                    <h3 class="dish-name">Rainforest Special Fried Rice</h3>
+                    <p class="dish-name-bn">রেইনফরেস্ট স্পেশাল ফ্রাইড রাইস</p>
+                    <p class="dish-details">Our Signature Dish<br>আমাদের স্বাক্ষর খাবার</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 400/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Egg Fried Rice</h3>
+                    <p class="dish-name-bn">এগ ফ্রাইড রাইস</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 299/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Chicken Fried Rice</h3>
+                    <p class="dish-name-bn">চিকেন ফ্রাইড রাইস</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 250/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Prawn Fried Rice</h3>
+                    <p class="dish-name-bn">প্রন ফ্রাইড রাইস</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 299/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chicken Curry Section -->
+        <div class="menu-category">
+            <div class="category-header">
+                <span class="category-icon">🍗</span>
+                <h2 class="category-name">Chicken Curry / চিকেন কারি</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <h3 class="dish-name">Chicken Sizzling</h3>
+                    <p class="dish-name-bn">চিকেন সিজলিং</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 350/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Chicken Masala</h3>
+                    <p class="dish-name-bn">চিকেন মশলা</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 299/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Garlic Chicken</h3>
+                    <p class="dish-name-bn">গার্লিক চিকেন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 250/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Chicken Chilli Onion</h3>
+                    <p class="dish-name-bn">চিকেন চিলি অনিয়ন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 239/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Beef Curry Section -->
+        <div class="menu-category">
+            <div class="category-header">
+                <span class="category-icon">🥩</span>
+                <h2 class="category-name">Beef Curry / বিফ কারি</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <h3 class="dish-name">Beef Sizzling</h3>
+                    <p class="dish-name-bn">বিফ সিজলিং</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 450/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Beef Masala</h3>
+                    <p class="dish-name-bn">বিফ মশলা</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 399/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Beef Chilli Onion</h3>
+                    <p class="dish-name-bn">বিফ চিলি অনিয়ন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 339/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Prawn Curry Section -->
+        <div class="menu-category">
+            <div class="category-header">
+                <span class="category-icon">🦐</span>
+                <h2 class="category-name">Prawn Curry / প্রন কারি</h2>
+            </div>
+            <div class="menu-grid">
+                <div class="menu-card">
+                    <h3 class="dish-name">Prawn Masala</h3>
+                    <p class="dish-name-bn">প্রন মশলা</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 379/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Sweet & Sour Prawn</h3>
+                    <p class="dish-name-bn">সুইট অ্যান্ড সাওয়ার প্রন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 360/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+                
+                <div class="menu-card">
+                    <h3 class="dish-name">Prawn Chilli Onion</h3>
+                    <p class="dish-name-bn">প্রন চিলি অনিয়ন</p>
+                    <div class="dish-price-row">
+                        <span class="dish-price">৳ 350/=</span>
+                        <button class="order-btn">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Platters Section - Highlighted -->
+        <div class="platters-section" id="offers">
+            <div class="section-header">
+                <h2 class="section-title">🎉 Special Platters / স্পেশাল প্লাটার</h2>
+                <div class="leaf-divider"></div>
+                <p class="section-subtitle">Best Value Combo Meals – Perfect for Groups!</p>
+            </div>
+            
+            <div class="platters-grid">
+                <div class="platter-card">
+                    <span class="platter-badge">Best Value</span>
+                    <h3 class="platter-name">Platter 1</h3>
+                    <p class="platter-price">৳ 220/=</p>
+                    <ul class="platter-items">
+                        <li>Egg Fried Rice / এগ ফ্রাইড রাইস</li>
+                        <li>Thai Fried Chicken (2pc)</li>
+                        <li>Mixed Veg / মিক্সড ভেজ</li>
+                        <li>Green Salad / গ্রিন সালাড</li>
+                    </ul>
+                </div>
+                
+                <div class="platter-card">
+                    <span class="platter-badge">Popular</span>
+                    <h3 class="platter-name">Platter 3</h3>
+                    <p class="platter-price">৳ 299/=</p>
+                    <ul class="platter-items">
+                        <li>Egg Fried Rice / এগ ফ্রাইড রাইস</li>
+                        <li>Chicken Chilli Onion</li>
+                        <li>BBQ Wings (2pc)</li>
+                        <li>Mixed Veg / মিক্সড ভেজ</li>
+                        <li>Salad / সালাড</li>
+                    </ul>
+                </div>
+                
+                <div class="platter-card">
+                    <span class="platter-badge">Premium</span>
+                    <h3 class="platter-name">Platter 5</h3>
+                    <p class="platter-price">৳ 360/=</p>
+                    <ul class="platter-items">
+                        <li>Egg Fried Rice / এগ ফ্রাইড রাইস</li>
+                        <li>Beef Chilli Onion</li>
+                        <li>Chicken Lollipop (2pc)</li>
+                        <li>Mixed Veg / মিক্সড ভেজ</li>
+                        <li>Salad / সালাড</li>
+                    </ul>
+                </div>
+                
+                <div class="platter-card">
+                    <span class="platter-badge">For Two</span>
+                    <h3 class="platter-name">Couple Platter</h3>
+                    <p class="platter-price">৳ 650/=</p>
+                    <ul class="platter-items">
+                        <li>Perfect for Couples</li>
+                        <li>Multiple Items Included</li>
+                        <li>Great Value Deal</li>
+                    </ul>
+                </div>
+                
+                <div class="platter-card" style="border-left-color: var(--wood-dark);">
+                    <span class="platter-badge" style="background: linear-gradient(135deg, #c0392b 0%, #e74c3c 100%);">Family Special</span>
+                    <h3 class="platter-name">Family Platter</h3>
+                    <p class="platter-price">৳ 1499/=</p>
+                    <ul class="platter-items">
+                        <li>Soup / সুপ</li>
+                        <li>Wonthon / ওয়ানথন</li>
+                        <li>Rice / রাইস</li>
+                        <li>Chicken Items / চিকেন আইটেম</li>
+                        <li>Veg Items / ভেজ আইটেম</li>
+                        <li>Salad / সালাড</li>
+                        <li>Soft Drinks (1:4 ratio)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quick Categories -->
+        <div class="section-header" style="margin-top: 4rem;">
+            <h2 class="section-title">More Delicious Options / আরও সুস্বাদু অপশন</h2>
+            <div class="leaf-divider"></div>
+        </div>
+        
+        <div class="quick-categories">
+            <div class="quick-cat-card">
+                <div class="quick-cat-icon">🍄</div>
+                <h4 class="quick-cat-title">Appetizers / অ্যাপেটাইজার</h4>
+                <p class="quick-cat-items">Spicy Garlic Mushroom • BBQ Wings • Naga Wings • Lollipop • Wonthon • French Fry</p>
+            </div>
+            
+            <div class="quick-cat-card">
+                <div class="quick-cat-icon">🍗</div>
+                <h4 class="quick-cat-title">Fried Chicken / ফ্রাইড চিকেন</h4>
+                <p class="quick-cat-items">Thai Fried • Spicy Fried • Crispy Fried</p>
+            </div>
+            
+            <div class="quick-cat-card">
+                <div class="quick-cat-icon">🍜</div>
+                <h4 class="quick-cat-title">Soups & Chowmein / সুপ ও চাউমিন</h4>
+                <p class="quick-cat-items">Various Soups • Chowmein Varieties</p>
+            </div>
+            
+            <div class="quick-cat-card">
+                <div class="quick-cat-icon">🥤</div>
+                <h4 class="quick-cat-title">Beverages / পানীয়</h4>
+                <p class="quick-cat-items">Fresh Juices • Coffee • Shakes</p>
+            </div>
+        </div>
+
+        <!-- Drinks Section -->
+        <div class="drinks-section">
+            <div class="section-header">
+                <h2 class="section-title">🥤 Refreshing Drinks / ঠান্ডা পানীয়</h2>
+                <div class="leaf-divider"></div>
+            </div>
+            
+            <div class="drinks-grid">
+                <div class="drink-category">
+                    <h3 class="drink-category-title">🍊 Fresh Juice / ফ্রেশ জুস</h3>
+                    <div class="drink-list">
+                        <span class="drink-tag">Orange</span>
+                        <span class="drink-tag">Mango</span>
+                        <span class="drink-tag">Green Mango</span>
+                        <span class="drink-tag">Papaya</span>
+                        <span class="drink-tag">Lemonade</span>
+                        <span class="drink-tag">Mint Fresher</span>
+                    </div>
+                </div>
+                
+                <div class="drink-category">
+                    <h3 class="drink-category-title">☕ Coffee / কফি</h3>
+                    <div class="drink-list">
+                        <span class="drink-tag">Hot Coffee</span>
+                        <span class="drink-tag">Cold Coffee</span>
+                        <span class="drink-tag">Cappuccino</span>
+                        <span class="drink-tag">Latte</span>
+                    </div>
+                </div>
+                
+                <div class="drink-category">
+                    <h3 class="drink-category-title">🥛 Shakes / শেক</h3>
+                    <div class="drink-list">
+                        <span class="drink-tag">Kaju Shake</span>
+                        <span class="drink-tag">Kitkat Shake</span>
+                        <span class="drink-tag">Oreo Shake</span>
+                        <span class="drink-tag">Banana Shake</span>
+                        <span class="drink-tag">Vanilla Shake</span>
+                        <span class="drink-tag">Chocolate Shake</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="footer-content">
+            <div class="delivery-banner">
+                <h3>🚚 Free Home Delivery In Mohammadpur</h3>
+                <p>মোহাম্মদপুরে ফ্রি হোম ডেলিভারি</p>
+            </div>
+            
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h4>📍 Our Location / আমাদের ঠিকানা</h4>
+                    <p>১৫, ৬ তাজমহল রোড, মোহাম্মদপুর<br>
+                    Dhaka 1207, Bangladesh</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>📞 Contact Us / যোগাযোগ</h4>
+                    <p>Phone / WhatsApp:</p>
+                    <span class="phone-highlight">০১৯১৫-১৭১৬০৪ | 01915-171604</span>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>🎊 Event Booking / ইভেন্ট বুকিং</h4>
+                    <p>We Arrange Wedding Receptions,<br>
+                    Birthday Parties & Others Events</p>
+                    <p style="margin-top: 0.5rem;">আমরা বিবাহ অনুষ্ঠান, জন্মদিন পার্টি<br>
+                    ও অন্যান্য ইভেন্ট আয়োজন করি</p>
+                    <span class="phone-highlight">০১৯১৫১৭১৬০৪</span>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 Rainforest Cafe. All Rights Reserved. | Made with ❤️ in Dhaka</p>
+                <p style="margin-top: 0.5rem;">স্বত্ব সংরক্ষিত © ২০২৪ রেইনফরেস্ট ক্যাফে</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('mainNav').classList.remove('active');
+                }
+            });
+        });
+
+        // Add scroll animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all menu cards
+        document.querySelectorAll('.menu-card, .platter-card, .quick-cat-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Order button click handler
+        document.querySelectorAll('.order-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const card = this.closest('.menu-card');
+                const dishName = card.querySelector('.dish-name').textContent;
+                alert(`🍽️ Ordering: ${dishName}\n\n📞 Call us at: 01915-171604\nOr WhatsApp to place your order!`);
+            });
+        });
+    </script>
+
+</body>
+</html>
